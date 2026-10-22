@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "elytrachestplateswitch",
+  "version": "${version}",
+  "name": "Elytra Chestplate Switch",
+  "description": "A mod that allows players to switch between elytra and chestplate while flying",
+  "authors": ["EnderDevelopment"],
+  "contact": {
+    "homepage": "https://enderdevelopment.com",
+    "sources": "https://github.com/enderdevelopment/elytrachestplateswitch"
+  },
+  "license": "MIT",
+  "icon": "assets/elytrachestplateswitch/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.enderdevelopment.elytrachestplateswitch.ElytraChestplateSwitchMod"
+    ]
+  },
+  "mixins": [
+    "elytrachestplateswitch.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "1.20.4"
+  }
+}

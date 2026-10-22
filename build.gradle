@@ -1,0 +1,43 @@
+plugins {
+    id 'fabric-loom' version '1.4-SNAPSHOT'
+}
+
+version = project.ext.mod_version
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
+ext {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.ext.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.ext.minecraft_version}:v2"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.ext.loader_version}"
+}
+
+loom {
+    accessWidenerPath = file('src/main/resources/${project.ext.archives_base_name}.accesswidener')
+    refreshVersions = false
+    refreshDeps = false
+    ide {
+        runConfigs {
+            client {
+                property 'fabric.dli.config', project.file('run/dli-client.properties')
+            }
+            server {
+                property 'fabric.dli.config', project.file('run/dli-server.properties')
+            }
+        }
+    }
+}
